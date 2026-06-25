@@ -8,12 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#050505",
-        card: "#101010",
-        secondary: "#181818",
-        ink: "#FFFFFF",
-        muted: "#A3A3A3",
-        accent: "#B8FF3B",
+        bg: "var(--bg)",
+        card: "var(--card)",
+        secondary: "var(--secondary)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        accent: "var(--accent)",
+        // foreground accent — legible on both themes (deep lime on light)
+        "accent-fg": "var(--accent-fg)",
+        "accent-ink": "var(--accent-ink)",
+        // semantic hairlines & overlays (theme-aware)
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
+        overlay: "var(--overlay)",
+        "overlay-strong": "var(--overlay-strong)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

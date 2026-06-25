@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,10 +65,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f6f4" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
+
+// Runs before paint to set the theme class — prevents a flash of the wrong theme.
+const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -99,8 +106,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de" className={inter.variable}>
+    <html lang="de" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body className="antialiased">
+        <ThemeToggle />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

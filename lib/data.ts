@@ -107,7 +107,8 @@ export const CASE_STUDIES = [
     metric: "+230%",
     label: "mehr Anfragen",
     tag: "Real Estate",
-    accentFrom: "#B8FF3B",
+    accentFrom: "#B8FF3B", // chart color (always on dark mockup)
+    accentLight: "#3F7A00", // legible metric color on light cards
   },
   {
     client: "Spitex",
@@ -115,6 +116,7 @@ export const CASE_STUDIES = [
     label: "qualifizierte Leads",
     tag: "Healthcare",
     accentFrom: "#9FE6FF",
+    accentLight: "#0A7CA4",
   },
   {
     client: "Finanzberater",
@@ -122,6 +124,7 @@ export const CASE_STUDIES = [
     label: "Conversions",
     tag: "Finance",
     accentFrom: "#FFD66B",
+    accentLight: "#A9760A",
   },
 ] as const;
 

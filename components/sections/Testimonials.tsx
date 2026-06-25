@@ -28,14 +28,14 @@ export default function Testimonials() {
             <button
               aria-label="Zurück"
               onClick={() => scrollBy(-1)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-card text-muted transition-colors hover:border-accent/40 hover:text-accent"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-card text-muted transition-colors hover:border-accent/40 hover:text-accent-fg"
             >
               <ChevronRight className="h-5 w-5 rotate-180" />
             </button>
             <button
               aria-label="Weiter"
               onClick={() => scrollBy(1)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-card text-muted transition-colors hover:border-accent/40 hover:text-accent"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-card text-muted transition-colors hover:border-accent/40 hover:text-accent-fg"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -60,14 +60,14 @@ export default function Testimonials() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
               whileHover={reduce ? undefined : { y: -6 }}
-              className="group flex w-[300px] shrink-0 snap-start flex-col rounded-[24px] border border-white/[0.07] bg-card p-6 transition-colors duration-300 hover:border-accent/40 sm:w-[340px]"
+              className="group flex w-[300px] shrink-0 snap-start flex-col rounded-[24px] border border-line bg-card p-6 transition-colors duration-300 hover:border-accent/40 sm:w-[340px]"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-bg text-sm font-semibold text-accent ring-1 ring-white/10">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-secondary to-bg text-sm font-semibold text-accent-fg ring-1 ring-line">
                   {t.initials}
                 </div>
                 <div className="min-w-0">
-                  <figcaption className="truncate text-[0.92rem] font-semibold text-white">
+                  <figcaption className="truncate text-[0.92rem] font-semibold text-ink">
                     {t.name}
                   </figcaption>
                   <p className="truncate text-[0.78rem] text-muted">
@@ -78,7 +78,7 @@ export default function Testimonials() {
 
               <div className="mt-4 flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} filled className="h-4 w-4 text-accent" />
+                  <Star key={s} filled className="h-4 w-4 text-accent-fg" />
                 ))}
               </div>
 

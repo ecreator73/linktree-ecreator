@@ -14,7 +14,7 @@ export default function FinalCTA() {
         <h2 className="relative text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
           Bereit für planbares
           <br />
-          <span className="text-accent">Wachstum?</span>
+          <span className="text-accent-fg">Wachstum?</span>
         </h2>
         <p className="relative mx-auto mt-5 max-w-md text-[0.98rem] leading-relaxed text-muted">
           Sichere dir jetzt deine kostenlose Analyse. Unverbindlich, ehrlich und
@@ -34,7 +34,7 @@ export default function FinalCTA() {
             href={URLS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
+            className="inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent-fg"
           >
             <WhatsApp className="h-4 w-4" />
             Oder schreib uns direkt auf WhatsApp

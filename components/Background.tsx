@@ -18,6 +18,17 @@ export default function Background() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    // theme-aware particle tint (lime on dark, deep green on light)
+    const isLight = () => document.documentElement.classList.contains("light");
+    let dot = isLight() ? "63,122,0" : "184,255,59";
+    const themeObserver = new MutationObserver(() => {
+      dot = isLight() ? "63,122,0" : "184,255,59";
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
     // ---- Cursor glow (lerped) ----
     const glow = glowRef.current;
     let mx = window.innerWidth / 2;
@@ -79,7 +90,7 @@ export default function Background() {
         if (p.x > w + 10) p.x = -10;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(184,255,59,${p.a})`;
+        ctx.fillStyle = `rgba(${dot},${p.a})`;
         ctx.fill();
       }
 
@@ -100,6 +111,7 @@ export default function Background() {
 
     return () => {
       cancelAnimationFrame(raf);
+      themeObserver.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
     };
@@ -121,7 +133,7 @@ export default function Background() {
         style={{ animationDelay: "-6s" }}
       />
       <div
-        className="absolute left-[40%] top-[220%] h-[30rem] w-[30rem] rounded-full bg-white/[0.025] blur-[130px] animate-float"
+        className="absolute left-[40%] top-[220%] h-[30rem] w-[30rem] rounded-full bg-[var(--shape)] blur-[130px] animate-float"
         style={{ animationDelay: "-10s" }}
       />
 

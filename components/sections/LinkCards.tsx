@@ -41,7 +41,7 @@ export default function LinkCards() {
               className={`group relative flex items-center gap-4 overflow-hidden rounded-[24px] border p-4 transition-colors duration-300 sm:p-5 ${
                 card.primary
                   ? "border-accent/30 bg-accent/[0.06] hover:border-accent/60"
-                  : "border-white/[0.07] bg-card hover:border-accent/40"
+                  : "border-line bg-card hover:border-accent/40"
               }`}
             >
               {/* hover green glow */}
@@ -52,15 +52,15 @@ export default function LinkCards() {
               <span
                 className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl transition-colors duration-300 ${
                   card.primary
-                    ? "bg-accent/15 text-accent"
-                    : "bg-secondary text-muted group-hover:bg-accent/15 group-hover:text-accent"
+                    ? "bg-accent/15 text-accent-fg"
+                    : "bg-secondary text-muted group-hover:bg-accent/15 group-hover:text-accent-fg"
                 }`}
               >
                 <Icon className="h-[22px] w-[22px]" />
               </span>
 
               <span className="relative min-w-0 flex-1">
-                <span className="block truncate text-[1.02rem] font-semibold text-white">
+                <span className="block truncate text-[1.02rem] font-semibold text-ink">
                   {card.title}
                 </span>
                 <span className="mt-0.5 block truncate text-[0.85rem] text-muted">
@@ -68,7 +68,7 @@ export default function LinkCards() {
                 </span>
               </span>
 
-              <ChevronRight className="relative h-5 w-5 shrink-0 text-muted transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent" />
+              <ChevronRight className="relative h-5 w-5 shrink-0 text-muted transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-fg" />
             </motion.a>
           );
         })}

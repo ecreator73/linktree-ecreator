@@ -58,7 +58,7 @@ export default function Hero() {
         >
           Wir bauen digitale Systeme,
           <br className="hidden sm:block" /> die Unternehmen{" "}
-          <span className="text-accent">wachsen</span> lassen.
+          <span className="text-accent-fg">wachsen</span> lassen.
         </motion.h1>
 
         {/* Service pills */}
@@ -69,7 +69,7 @@ export default function Hero() {
           {pills.map((p) => (
             <li
               key={p}
-              className="rounded-full border border-white/10 bg-secondary/60 px-3.5 py-1.5 text-[0.8rem] text-muted"
+              className="rounded-full border border-line bg-secondary/60 px-3.5 py-1.5 text-[0.8rem] text-muted"
             >
               {p}
             </li>
@@ -99,7 +99,7 @@ export default function Hero() {
           </a>
           <a
             href={URLS.termin}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/[0.02] px-6 py-3.5 text-[0.95rem] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-white/[0.04]"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-line-strong bg-overlay px-6 py-3.5 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-overlay-strong"
           >
             Termin buchen
           </a>
@@ -113,20 +113,20 @@ export default function Hero() {
           <div className="flex items-center gap-2">
             <div className="flex">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} filled className="h-4 w-4 text-accent" />
+                <Star key={i} filled className="h-4 w-4 text-accent-fg" />
               ))}
             </div>
-            <span className="font-semibold text-white">5.0</span>
+            <span className="font-semibold text-ink">5.0</span>
             <span className="text-muted">Google</span>
           </div>
-          <span className="hidden h-4 w-px bg-white/10 sm:block" />
+          <span className="hidden h-4 w-px bg-line-strong sm:block" />
           <div className="text-muted">
-            <span className="font-semibold text-white">12&apos;000+</span> Leads
+            <span className="font-semibold text-ink">12&apos;000+</span> Leads
             generiert
           </div>
-          <span className="hidden h-4 w-px bg-white/10 sm:block" />
+          <span className="hidden h-4 w-px bg-line-strong sm:block" />
           <div className="text-muted">
-            <span className="font-semibold text-white">Meta &amp; Google</span>{" "}
+            <span className="font-semibold text-ink">Meta &amp; Google</span>{" "}
             Partner
           </div>
         </motion.div>

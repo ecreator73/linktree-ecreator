@@ -20,11 +20,11 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <span
-          className={`mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent ${
+          className={`mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent-fg ${
             centered ? "justify-center" : ""
           }`}
         >
-          <span className="h-1 w-1 rounded-full bg-accent" />
+          <span className="h-1 w-1 rounded-full bg-accent-fg" />
           {eyebrow}
         </span>
       )}

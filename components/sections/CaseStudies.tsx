@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { CASE_STUDIES } from "@/lib/data";
 import { ArrowRight } from "@/components/icons";
+import { useTheme } from "@/lib/useTheme";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -14,8 +15,8 @@ function Mockup({ accent }: { accent: string }) {
     .map((p, i) => `${i === 0 ? "M" : "L"} ${(i / (pts.length - 1)) * 100} ${p}`)
     .join(" ");
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/[0.07] bg-bg/80">
-      <div className="flex items-center gap-1.5 border-b border-white/5 px-3 py-2.5">
+    <div className="relative overflow-hidden rounded-2xl border border-line bg-[#0c0c0c]">
+      <div className="flex items-center gap-1.5 border-b border-white/[0.06] px-3 py-2.5">
         <span className="h-2 w-2 rounded-full bg-white/15" />
         <span className="h-2 w-2 rounded-full bg-white/15" />
         <span className="h-2 w-2 rounded-full bg-white/15" />
@@ -59,6 +60,7 @@ function Mockup({ accent }: { accent: string }) {
 
 export default function CaseStudies() {
   const reduce = useReducedMotion();
+  const theme = useTheme();
   return (
     <section id="case-studies" className="mx-auto max-w-5xl px-6 pt-28">
       <SectionHeading
@@ -77,19 +79,19 @@ export default function CaseStudies() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease, delay: i * 0.1 }}
             whileHover={reduce ? undefined : { y: -6 }}
-            className="group relative flex flex-col gap-5 rounded-[28px] border border-white/[0.07] bg-card p-6 transition-colors duration-300 hover:border-accent/40"
+            className="group relative flex flex-col gap-5 rounded-[28px] border border-line bg-card p-6 transition-colors duration-300 hover:border-accent/40"
           >
             <div className="flex items-center justify-between">
-              <span className="rounded-full border border-white/10 bg-secondary px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wide text-muted">
+              <span className="rounded-full border border-line bg-secondary px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wide text-muted">
                 {cs.tag}
               </span>
-              <ArrowRight className="h-4 w-4 text-muted transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent" />
+              <ArrowRight className="h-4 w-4 text-muted transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-fg" />
             </div>
 
             <div>
               <div
                 className="text-5xl font-semibold tracking-tight"
-                style={{ color: cs.accentFrom }}
+                style={{ color: theme === "light" ? cs.accentLight : cs.accentFrom }}
               >
                 {cs.metric}
               </div>
@@ -98,7 +100,7 @@ export default function CaseStudies() {
 
             <Mockup accent={cs.accentFrom} />
 
-            <div className="mt-auto text-[0.95rem] font-medium text-white">
+            <div className="mt-auto text-[0.95rem] font-medium text-ink">
               {cs.client}
             </div>
           </motion.article>

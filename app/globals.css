@@ -2,8 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* ---- Theme tokens ---- */
+:root,
+.dark {
   color-scheme: dark;
+  --bg: #050505;
+  --card: #101010;
+  --secondary: #181818;
+  --ink: #ffffff;
+  --muted: #a3a3a3;
+  --accent: #b8ff3b; /* neon lime — fills / CTA */
+  --accent-fg: #b8ff3b; /* foreground accent (text/icons) */
+  --accent-ink: #0a0a0a; /* text on accent fills */
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --overlay: rgba(255, 255, 255, 0.02);
+  --overlay-strong: rgba(255, 255, 255, 0.05);
+  --shape: rgba(255, 255, 255, 0.025);
+  --glass-bg: rgba(16, 16, 16, 0.6);
+  --scroll-track: #050505;
+  --scroll-thumb: #1f1f1f;
+  --scroll-thumb-hover: #2a2a2a;
+}
+
+.light {
+  color-scheme: light;
+  --bg: #f6f6f4;
+  --card: #ffffff;
+  --secondary: #efefec;
+  --ink: #0a0a0a;
+  --muted: #62636a;
+  --accent: #b8ff3b; /* keep neon lime for CTA pop */
+  --accent-fg: #3f7a00; /* deep lime — legible on light */
+  --accent-ink: #0a0a0a;
+  --line: rgba(10, 10, 10, 0.08);
+  --line-strong: rgba(10, 10, 10, 0.14);
+  --overlay: rgba(10, 10, 10, 0.015);
+  --overlay-strong: rgba(10, 10, 10, 0.04);
+  --shape: rgba(10, 10, 10, 0.03);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --scroll-track: #f6f6f4;
+  --scroll-thumb: #d8d8d4;
+  --scroll-thumb-hover: #c4c4c0;
 }
 
 * {
@@ -15,12 +55,13 @@ html {
 }
 
 body {
-  background-color: #050505;
-  color: #ffffff;
+  background-color: var(--bg);
+  color: var(--ink);
   font-feature-settings: "ss01", "cv01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Selection */
@@ -35,14 +76,14 @@ body {
   height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--scroll-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
+  background: var(--scroll-thumb);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a2a2a;
+  background: var(--scroll-thumb-hover);
 }
 
 @layer utilities {
@@ -68,13 +109,21 @@ body {
   }
 
   .glass {
-    background: rgba(16, 16, 16, 0.6);
+    background: var(--glass-bg);
     backdrop-filter: blur(14px) saturate(120%);
     -webkit-backdrop-filter: blur(14px) saturate(120%);
   }
 
   .hairline {
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--line);
+  }
+
+  /* eCreator logo is a white asset; invert to black for light mode */
+  .brand-logo {
+    transition: filter 0.4s ease;
+  }
+  .light .brand-logo {
+    filter: invert(1);
   }
 }
 

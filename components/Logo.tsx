@@ -18,7 +18,8 @@ export default function Logo({
       width={width}
       height={height}
       priority={priority}
-      className={className}
+      // brand-logo: white asset; inverted to black in light mode (see globals.css)
+      className={`brand-logo ${className}`}
       sizes="(max-width: 640px) 80vw, 520px"
     />
   );

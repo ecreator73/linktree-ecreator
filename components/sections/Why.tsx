@@ -11,10 +11,10 @@ export default function Why() {
   const reduce = useReducedMotion();
   return (
     <section id="warum" className="mx-auto max-w-5xl px-6 pt-28">
-      <div className="grid items-center gap-12 rounded-[28px] border border-white/[0.07] bg-card/60 p-8 sm:p-12 lg:grid-cols-2">
+      <div className="grid items-center gap-12 rounded-[28px] border border-line bg-card/60 p-8 sm:p-12 lg:grid-cols-2">
         <Reveal>
-          <span className="mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent">
-            <span className="h-1 w-1 rounded-full bg-accent" />
+          <span className="mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent-fg">
+            <span className="h-1 w-1 rounded-full bg-accent-fg" />
             Warum eCreator
           </span>
           <h2 className="text-balance text-2xl font-semibold leading-tight tracking-tight sm:text-[2.1rem]">
@@ -53,12 +53,12 @@ export default function Why() {
                   transition: { duration: 0.5, ease },
                 },
               }}
-              className="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-secondary/50 px-4 py-3.5"
+              className="flex items-center gap-3 rounded-2xl border border-line bg-secondary/50 px-4 py-3.5"
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent-fg">
                 <Check className="h-4 w-4" />
               </span>
-              <span className="text-[0.95rem] font-medium text-white">{w}</span>
+              <span className="text-[0.95rem] font-medium text-ink">{w}</span>
             </motion.li>
           ))}
         </motion.ul>

@@ -28,13 +28,13 @@ export default function Services() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease, delay: (i % 3) * 0.08 }}
               whileHover={reduce ? undefined : { y: -5 }}
-              className="group relative overflow-hidden rounded-[24px] border border-white/[0.07] bg-card p-6 transition-colors duration-300 hover:border-accent/40"
+              className="group relative overflow-hidden rounded-[24px] border border-line bg-card p-6 transition-colors duration-300 hover:border-accent/40"
             >
               <span className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/0 blur-2xl transition-all duration-500 group-hover:bg-accent/10" />
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-muted transition-colors duration-300 group-hover:bg-accent/15 group-hover:text-accent">
+              <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-muted transition-colors duration-300 group-hover:bg-accent/15 group-hover:text-accent-fg">
                 <Icon className="h-[22px] w-[22px]" />
               </span>
-              <h3 className="relative mt-5 text-[1.05rem] font-semibold text-white">
+              <h3 className="relative mt-5 text-[1.05rem] font-semibold text-ink">
                 {s.title}
               </h3>
               <p className="relative mt-2 text-[0.88rem] leading-relaxed text-muted">
