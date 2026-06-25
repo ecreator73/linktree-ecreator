@@ -59,9 +59,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  icons: {
-    icon: "/favicon.svg",
-  },
+  // favicon is auto-detected from app/icon.svg (basePath-aware)
 };
 
 export const viewport: Viewport = {
