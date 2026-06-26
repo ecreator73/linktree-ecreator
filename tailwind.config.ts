@@ -42,10 +42,15 @@ const config: Config = {
         shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         float: "float 14s ease-in-out infinite",
         shimmer: "shimmer 2.5s infinite",
+        marquee: "marquee 38s linear infinite",
       },
     },
   },

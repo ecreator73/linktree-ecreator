@@ -101,31 +101,54 @@ export const LINK_CARDS: LinkCard[] = [
   },
 ];
 
+// Headline results band
+export const STATS = [
+  { value: "12'000+", label: "Leads generiert" },
+  { value: "150+", label: "Projekte realisiert" },
+  { value: "29+", label: "Branchen" },
+  { value: "5.0★", label: "Google Bewertung" },
+] as const;
+
+// Placeholder client wall (text logos for the marquee)
+export const CLIENTS = [
+  "Swiss Immobilien",
+  "Spitex Plus",
+  "Widmer Finanz",
+  "Alpenhof Group",
+  "Bianchi Dental",
+  "Meier Bau AG",
+  "Roth Studio",
+  "Suter Coaching",
+  "Helvetia Auto",
+  "Brunner Immobilien",
+  "Lakeside Hotel",
+  "Vitalis Praxis",
+] as const;
+
+// Many case studies (placeholders) — agency-style results grid
 export const CASE_STUDIES = [
-  {
-    client: "Swiss Immobilien",
-    metric: "+230%",
-    label: "mehr Anfragen",
-    tag: "Real Estate",
-    accentFrom: "#B8FF3B", // chart color (always on dark mockup)
-    accentLight: "#3F7A00", // legible metric color on light cards
-  },
-  {
-    client: "Spitex",
-    metric: "+178%",
-    label: "qualifizierte Leads",
-    tag: "Healthcare",
-    accentFrom: "#9FE6FF",
-    accentLight: "#0A7CA4",
-  },
-  {
-    client: "Finanzberater",
-    metric: "+310%",
-    label: "Conversions",
-    tag: "Finance",
-    accentFrom: "#FFD66B",
-    accentLight: "#A9760A",
-  },
+  { client: "Swiss Immobilien", industry: "Immobilien", metric: "+230%", label: "mehr Anfragen", period: "in 3 Monaten" },
+  { client: "Spitex Plus", industry: "Healthcare", metric: "+178%", label: "qualifizierte Leads", period: "in 4 Monaten" },
+  { client: "Widmer Finanz", industry: "Finanzen", metric: "+310%", label: "Conversions", period: "in 6 Monaten" },
+  { client: "Alpenhof Group", industry: "Hospitality", metric: "+540K", label: "Impressionen", period: "in 90 Tagen" },
+  { client: "Bianchi Dental", industry: "Dental", metric: "×3.4", label: "Neukunden / Monat", period: "in 5 Monaten" },
+  { client: "Meier Bau AG", industry: "Bau", metric: "−42%", label: "Kosten pro Lead", period: "in 2 Monaten" },
+  { client: "Roth Studio", industry: "Beauty", metric: "+260%", label: "Buchungen", period: "in 3 Monaten" },
+  { client: "Suter Coaching", industry: "Coaching", metric: "CHF 300K", label: "Umsatz generiert", period: "in 90 Tagen" },
+  { client: "Helvetia Auto", industry: "Automotive", metric: "+190%", label: "Probefahrten", period: "in 4 Monaten" },
+  { client: "Lakeside Hotel", industry: "Hospitality", metric: "+88%", label: "Direktbuchungen", period: "in 6 Monaten" },
+  { client: "Vitalis Praxis", industry: "Gesundheit", metric: "+215%", label: "Terminanfragen", period: "in 3 Monaten" },
+  { client: "Nordwind Retail", industry: "E-Commerce", metric: "4.1×", label: "ROAS", period: "in 60 Tagen" },
+] as const;
+
+// Vertical reel / short-video showcase (placeholders)
+export const REELS = [
+  { title: "Brand Story", handle: "@ecreator.ch", views: "1.2M", hue: 96 },
+  { title: "Vorher / Nachher", handle: "@ecreator.ch", views: "840K", hue: 150 },
+  { title: "Kundenstimme", handle: "@ecreator.ch", views: "612K", hue: 190 },
+  { title: "Behind the Scenes", handle: "@ecreator.ch", views: "503K", hue: 70 },
+  { title: "Produkt-Launch", handle: "@ecreator.ch", views: "2.0M", hue: 45 },
+  { title: "Ad Creative", handle: "@ecreator.ch", views: "1.6M", hue: 280 },
 ] as const;
 
 export const SERVICES = [
@@ -225,6 +248,38 @@ export const TESTIMONIALS = [
     quote:
       "Die Automatisierungen sparen uns jede Woche Stunden. eCreator hat unser Business effizienter gemacht.",
     initials: "CR",
+  },
+  {
+    name: "Luca Ferrari",
+    role: "Geschäftsführer",
+    company: "Helvetia Auto",
+    quote:
+      "Die Reels haben unsere Showrooms gefüllt. So viele Probefahrten hatten wir noch nie.",
+    initials: "LF",
+  },
+  {
+    name: "Anita Graf",
+    role: "Inhaberin",
+    company: "Vitalis Praxis",
+    quote:
+      "Vom Branding bis zu den Ads – alles greift ineinander. Die Terminanfragen haben sich mehr als verdoppelt.",
+    initials: "AG",
+  },
+  {
+    name: "Stefan Huber",
+    role: "CEO",
+    company: "Nordwind Retail",
+    quote:
+      "Unser ROAS ist auf 4× gestiegen. Endlich ein Partner, der Performance wirklich versteht.",
+    initials: "SH",
+  },
+  {
+    name: "Melanie Vogt",
+    role: "Marketing",
+    company: "Lakeside Hotel",
+    quote:
+      "Direktbuchungen rauf, Abhängigkeit von Portalen runter. Genau das, was wir wollten.",
+    initials: "MV",
   },
 ] as const;
 

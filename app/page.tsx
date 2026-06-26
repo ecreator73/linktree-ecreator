@@ -1,7 +1,10 @@
 import Background from "@/components/Background";
 import Hero from "@/components/sections/Hero";
+import Stats from "@/components/sections/Stats";
+import Clients from "@/components/sections/Clients";
 import LinkCards from "@/components/sections/LinkCards";
 import CaseStudies from "@/components/sections/CaseStudies";
+import Reels from "@/components/sections/Reels";
 import Services from "@/components/sections/Services";
 import Testimonials from "@/components/sections/Testimonials";
 import Why from "@/components/sections/Why";
@@ -14,8 +17,11 @@ export default function Page() {
     <main className="relative min-h-screen overflow-hidden">
       <Background />
       <Hero />
+      <Stats />
+      <Clients />
       <LinkCards />
       <CaseStudies />
+      <Reels />
       <Services />
       <Testimonials />
       <Why />
