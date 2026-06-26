@@ -156,3 +156,19 @@ export const ArrowRight = (p: I) => (
     <path d="M5 12h14M13 6l6 6-6 6" />
   </svg>
 );
+
+export const Lock = (p: I) => (
+  <svg {...base} {...p}>
+    <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+    <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+    <circle cx="12" cy="15.3" r="1.1" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+export const Shield = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3Z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+

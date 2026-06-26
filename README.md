@@ -45,6 +45,31 @@ zentral in **`lib/data.ts`**. Echte Ziel-URLs im `URLS`-Objekt eintragen
 
 Das Logo liegt unter `public/ecreator-logo.png` (transparent aufbereitet).
 
+## Kostenlose AI Analyse (Lead Funnel)
+
+Die Section `components/sections/AiAnalysis.tsx` ist der zentrale Lead-Magnet:
+Eingabe (Firma + Website) → animierte Analyse-Sequenz → Scores & Quick Wins →
+gesperrter Report → Lead-Formular → Success.
+
+**Ehrlichkeit:** Die Analyse ist eine als solche gekennzeichnete *Erste
+Schnellanalyse* (deterministische Einschätzung aus der Eingabe in
+`lib/analysis.ts`, echtes Logo via Favicon-Service) – keine erfundenen
+Messwerte. Der vollständige Report wird vom Team manuell geprüft.
+
+**Lead-Erfassung** (`lib/leads.ts`) mit abgestuften Fallbacks:
+1. **Supabase** direkt aus dem Browser, wenn `NEXT_PUBLIC_SUPABASE_URL` +
+   `NEXT_PUBLIC_SUPABASE_ANON_KEY` gesetzt sind (Schema:
+   `supabase/schema.sql` – Tabelle `leads` + RLS-Insert + Trigger, der
+   automatisch einen Follow-up-Task und eine Sales-Notification anlegt).
+2. **Webhook** über `NEXT_PUBLIC_LEAD_ENDPOINT` (z. B. die Route-Vorlage
+   `activation/analysis-lead.route.ts` auf einem Server-Runtime / Vercel).
+3. **Fallback:** vorausgefüllte E-Mail an `info@ecreator.ch` – so geht nie
+   ein Lead verloren, auch ohne Backend.
+
+Env-Variablen siehe `.env.example`. Auf statischem GitHub Pages funktioniert
+Variante 1 (Supabase direkt) und 3 (Mail); für `/api/analysis-lead` (Variante 2)
+`output: "export"` entfernen und auf einem Server-Runtime deployen.
+
 ## Analytics / Meta Pixel
 
 Platzhalter vorbereitet in `app/layout.tsx`. IDs eintragen und das

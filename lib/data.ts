@@ -20,7 +20,8 @@ import {
 
 // Central place to swap real URLs.
 export const URLS = {
-  analyse: "https://ecreator.ch/analyse",
+  analyse: "#ai-analyse", // jumps to the on-page AI analysis funnel
+
   termin: "https://ecreator.ch/termin",
   projekte: "https://ecreator.ch/projekte",
   caseStudies: "https://ecreator.ch/case-studies",

@@ -1,6 +1,7 @@
 import Background from "@/components/Background";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
+import AiAnalysis from "@/components/sections/AiAnalysis";
 import Clients from "@/components/sections/Clients";
 import LinkCards from "@/components/sections/LinkCards";
 import CaseStudies from "@/components/sections/CaseStudies";
@@ -18,6 +19,7 @@ export default function Page() {
       <Background />
       <Hero />
       <Stats />
+      <AiAnalysis />
       <Clients />
       <LinkCards />
       <CaseStudies />
