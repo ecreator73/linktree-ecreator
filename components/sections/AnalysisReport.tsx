@@ -5,6 +5,7 @@ import type { AnalysisResult } from "@/lib/analysis";
 import { generateCreatives } from "@/lib/report";
 import { URLS } from "@/lib/data";
 import { LogoMark, SiteShot } from "@/components/SmartImage";
+import ScaledFrame from "@/components/ScaledFrame";
 import {
   Check,
   ArrowRight,
@@ -76,6 +77,10 @@ export default function AnalysisReport({
 }) {
   const reduce = useReducedMotion();
   const c = generateCreatives(result);
+  const BP = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const previewUrl = `${BP}/vorschau/?c=${encodeURIComponent(
+    result.company
+  )}&d=${encodeURIComponent(result.domain)}`;
 
   return (
     <motion.div
@@ -127,41 +132,39 @@ export default function AnalysisReport({
         </p>
       </Block>
 
-      {/* ---------- 1. NEW WEBSITE PREVIEW ---------- */}
-      <Block eyebrow="Vorschlag 01" title="Neue Website – Vorschau">
+      {/* ---------- 1. NEW WEBSITE PREVIEW (live, real page) ---------- */}
+      <Block eyebrow="Vorschlag 01" title="Neue Website – Live-Vorschau">
         <div className="overflow-hidden rounded-[20px] border border-line bg-[#0c0c0c]">
-          {/* browser bar */}
           <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="ml-3 flex-1 truncate rounded-md bg-white/5 px-3 py-1 text-[0.72rem] text-white/40">
-              {result.domain}
+              {result.domain} · neues Design
             </span>
+            <a
+              href={previewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-1.5 rounded-md bg-accent px-3 py-1 text-[0.72rem] font-semibold text-black sm:inline-flex"
+            >
+              In neuem Tab öffnen <ArrowRight className="h-3 w-3" />
+            </a>
           </div>
-          {/* hero */}
-          <div className="relative p-7 sm:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_circle_at_70%_10%,rgba(184,255,59,0.12),transparent_60%)]" />
-            <div className="relative flex items-center gap-2.5">
-              <BrandMark result={result} size={28} />
-              <span className="text-sm font-semibold text-white">{c.brand}</span>
-              <nav className="ml-auto hidden gap-5 text-[0.78rem] text-white/50 sm:flex">
-                {c.website.nav.map((n) => (
-                  <span key={n}>{n}</span>
-                ))}
-              </nav>
-            </div>
-            <div className="relative mt-10 max-w-lg">
-              <h5 className="text-2xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
-                {c.website.headline}
-              </h5>
-              <p className="mt-3 text-[0.9rem] text-white/60">{c.website.sub}</p>
-              <span className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-black">
-                {c.website.cta}
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </div>
-          </div>
+          <ScaledFrame src={previewUrl} className="bg-[#070707]" />
+        </div>
+        <div className="mt-3 flex items-center justify-between gap-3">
+          <p className="text-[0.78rem] text-muted">
+            Echte, live gerenderte Website-Vorschau mit deinem Logo – interaktiv.
+          </p>
+          <a
+            href={previewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-1.5 text-[0.8rem] font-semibold text-accent-fg hover:underline"
+          >
+            Vorschau öffnen <ArrowRight className="h-3.5 w-3.5" />
+          </a>
         </div>
       </Block>
 
