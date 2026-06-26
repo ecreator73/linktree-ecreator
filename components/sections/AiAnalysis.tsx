@@ -10,6 +10,7 @@ import {
   type AnalysisResult,
 } from "@/lib/analysis";
 import { buildPayload, submitLead, type LeadInput } from "@/lib/leads";
+import AnalysisReport from "@/components/sections/AnalysisReport";
 import {
   Sparkles,
   ArrowRight,
@@ -452,27 +453,9 @@ export default function AiAnalysis() {
             />
           )}
 
-          {/* ---------- DONE ---------- */}
-          {phase === "done" && (
-            <motion.div
-              key="done"
-              initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.45, ease }}
-              className="relative mx-auto max-w-lg py-8 text-center"
-            >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent/15 text-accent-fg">
-                <Check className="h-8 w-8" />
-              </div>
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight text-ink">
-                Vielen Dank!
-              </h3>
-              <p className="mx-auto mt-3 max-w-md text-[0.95rem] leading-relaxed text-muted">
-                Wir prüfen deine Analyse für{" "}
-                <span className="text-ink">{company}</span> und melden uns persönlich
-                bei dir. Du erhältst deinen vollständigen Report in Kürze.
-              </p>
-            </motion.div>
+          {/* ---------- DONE → full unlocked report ---------- */}
+          {phase === "done" && result && (
+            <AnalysisReport key="report" result={result} company={company} />
           )}
         </AnimatePresence>
       </div>
