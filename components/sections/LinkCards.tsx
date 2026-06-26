@@ -46,7 +46,7 @@ export default function LinkCards() {
             >
               {/* hover green glow */}
               <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="absolute inset-0 bg-[radial-gradient(400px_circle_at_var(--x,50%)_50%,rgba(184,255,59,0.08),transparent_60%)]" />
+                <span className="absolute inset-0 bg-[radial-gradient(400px_circle_at_var(--x,50%)_50%,rgba(124,108,245,0.08),transparent_60%)]" />
               </span>
 
               <span

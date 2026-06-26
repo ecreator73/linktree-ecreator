@@ -23,7 +23,7 @@ export default function FinalCTA() {
 
         <a
           href={URLS.analyse}
-          className="group relative mt-9 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-8 py-4 text-[1rem] font-semibold text-black shadow-[0_12px_50px_-10px_rgba(184,255,59,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_60px_-8px_rgba(184,255,59,0.75)]"
+          className="group relative mt-9 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-8 py-4 text-[1rem] font-semibold text-black shadow-[0_12px_50px_-10px_rgba(124,108,245,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_60px_-8px_rgba(124,108,245,0.75)]"
         >
           Kostenlose Analyse sichern
           <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

@@ -11,8 +11,8 @@
   --secondary: #181818;
   --ink: #ffffff;
   --muted: #a3a3a3;
-  --accent: #b8ff3b; /* neon lime — fills / CTA */
-  --accent-fg: #b8ff3b; /* foreground accent (text/icons) */
+  --accent: #7c6cf5; /* periwinkle violet — fills / CTA */
+  --accent-fg: #9d8dff; /* foreground accent (text/icons) on dark */
   --accent-ink: #0a0a0a; /* text on accent fills */
   --line: rgba(255, 255, 255, 0.07);
   --line-strong: rgba(255, 255, 255, 0.14);
@@ -32,8 +32,8 @@
   --secondary: #efefec;
   --ink: #0a0a0a;
   --muted: #62636a;
-  --accent: #b8ff3b; /* keep neon lime for CTA pop */
-  --accent-fg: #3f7a00; /* deep lime — legible on light */
+  --accent: #7c6cf5; /* periwinkle violet for CTA pop */
+  --accent-fg: #5b3fd6; /* deep violet — legible on light */
   --accent-ink: #0a0a0a;
   --line: rgba(10, 10, 10, 0.08);
   --line-strong: rgba(10, 10, 10, 0.14);

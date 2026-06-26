@@ -49,7 +49,7 @@ export default function Reels() {
                   background: `linear-gradient(155deg, hsl(${r.hue} 60% 22%), #0b0b0b 70%)`,
                 }}
               />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(184,255,59,0.18),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(124,108,245,0.18),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
               {/* play button */}
               <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-accent group-hover:text-accent">

@@ -45,18 +45,18 @@ export default function VorschauPage() {
             </span>
           ))}
         </nav>
-        <span className="rounded-xl bg-[#B8FF3B] px-4 py-2 text-sm font-semibold text-black">
+        <span className="rounded-xl bg-[#7C6CF5] px-4 py-2 text-sm font-semibold text-black">
           {c.website.cta}
         </span>
       </header>
 
       {/* hero */}
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-40 right-0 h-[36rem] w-[36rem] rounded-full bg-[#B8FF3B]/10 blur-[120px]" />
+        <div className="pointer-events-none absolute -top-40 right-0 h-[36rem] w-[36rem] rounded-full bg-[#7C6CF5]/10 blur-[120px]" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#B8FF3B]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#7C6CF5]" />
               Neuer Markenauftritt
             </span>
             <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
@@ -64,7 +64,7 @@ export default function VorschauPage() {
             </h1>
             <p className="mt-5 max-w-md text-lg text-white/60">{c.website.sub}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <span className="rounded-2xl bg-[#B8FF3B] px-6 py-3.5 text-[0.95rem] font-semibold text-black">
+              <span className="rounded-2xl bg-[#7C6CF5] px-6 py-3.5 text-[0.95rem] font-semibold text-black">
                 {c.website.cta}
               </span>
               <span className="rounded-2xl border border-white/20 px-6 py-3.5 text-[0.95rem] font-semibold text-white">
@@ -92,7 +92,7 @@ export default function VorschauPage() {
               />
             </div>
             <div className="absolute -bottom-5 -left-5 rounded-2xl border border-white/10 bg-[#101010] px-4 py-3 shadow-xl">
-              <div className="text-2xl font-semibold text-[#B8FF3B]">+230%</div>
+              <div className="text-2xl font-semibold text-[#7C6CF5]">+230%</div>
               <div className="text-[0.7rem] text-white/50">mehr Anfragen</div>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function VorschauPage() {
             { t: "Sichtbar bei Google", d: "SEO-optimiert für nachhaltige Reichweite." },
           ].map((f) => (
             <div key={f.t} className="rounded-[22px] border border-white/10 bg-[#101010] p-6">
-              <div className="mb-4 h-10 w-10 rounded-xl bg-[#B8FF3B]/15" />
+              <div className="mb-4 h-10 w-10 rounded-xl bg-[#7C6CF5]/15" />
               <h3 className="text-lg font-semibold">{f.t}</h3>
               <p className="mt-2 text-sm text-white/55">{f.d}</p>
             </div>
@@ -118,15 +118,15 @@ export default function VorschauPage() {
 
       {/* cta */}
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="relative overflow-hidden rounded-[28px] border border-[#B8FF3B]/20 bg-[#101010] p-10 text-center sm:p-16">
-          <div className="pointer-events-none absolute -top-20 left-1/2 h-40 w-96 -translate-x-1/2 rounded-full bg-[#B8FF3B]/15 blur-[90px]" />
+        <div className="relative overflow-hidden rounded-[28px] border border-[#7C6CF5]/20 bg-[#101010] p-10 text-center sm:p-16">
+          <div className="pointer-events-none absolute -top-20 left-1/2 h-40 w-96 -translate-x-1/2 rounded-full bg-[#7C6CF5]/15 blur-[90px]" />
           <h2 className="relative text-3xl font-semibold tracking-tight sm:text-4xl">
             Bereit für mehr Kunden?
           </h2>
           <p className="relative mx-auto mt-3 max-w-md text-white/60">
             Lass uns {c.brand} gemeinsam auf das nächste Level bringen.
           </p>
-          <span className="relative mt-7 inline-block rounded-2xl bg-[#B8FF3B] px-8 py-4 font-semibold text-black">
+          <span className="relative mt-7 inline-block rounded-2xl bg-[#7C6CF5] px-8 py-4 font-semibold text-black">
             {c.flyer.offer}
           </span>
         </div>

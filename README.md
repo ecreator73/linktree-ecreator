@@ -23,7 +23,7 @@ Linear, Stripe, Vercel, Framer & Raycast.
 | `secondary`  | `#181818` | Sekundärflächen                              |
 | `ink`        | `#FFFFFF` | Text                                         |
 | `muted`      | `#A3A3A3` | Sekundärtext                                 |
-| `accent`     | `#B8FF3B` | Neon Lime — nur Icons, Checks, Hover, Akzente |
+| `accent`     | `#7C6CF5` | Neon Lime — nur Icons, Checks, Hover, Akzente |
 
 Rounded Corners (24–28px), Soft Shadows, sehr dezentes Glassmorphism, langsam
 driftende grüne Partikel, Mouse-Glow und Floating Shapes im Hintergrund.

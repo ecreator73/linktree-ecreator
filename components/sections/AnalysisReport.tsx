@@ -219,7 +219,7 @@ export default function AnalysisReport({
       <Block eyebrow="KI-Bilder" title="KI-generierte Bildkonzepte" delay={0.05}>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {[
-            `premium brand mood image for ${c.brand}, elegant, modern, cinematic, dark tones with lime green accents`,
+            `premium brand mood image for ${c.brand}, elegant, modern, cinematic, dark tones with violet purple accents`,
             `professional modern workplace of ${c.brand}, architectural photography, premium, bright`,
             `hero marketing visual for ${c.brand}, abstract premium product concept, studio lighting, high detail`,
           ].map((prompt, i) => (

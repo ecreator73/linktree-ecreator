@@ -144,12 +144,12 @@ export const CASE_STUDIES = [
 
 // Vertical reel / short-video showcase (placeholders)
 export const REELS = [
-  { title: "Brand Story", handle: "@ecreator.ch", views: "1.2M", hue: 96 },
-  { title: "Vorher / Nachher", handle: "@ecreator.ch", views: "840K", hue: 150 },
-  { title: "Kundenstimme", handle: "@ecreator.ch", views: "612K", hue: 190 },
-  { title: "Behind the Scenes", handle: "@ecreator.ch", views: "503K", hue: 70 },
-  { title: "Produkt-Launch", handle: "@ecreator.ch", views: "2.0M", hue: 45 },
-  { title: "Ad Creative", handle: "@ecreator.ch", views: "1.6M", hue: 280 },
+  { title: "Brand Story", handle: "@ecreator.ch", views: "1.2M", hue: 250 },
+  { title: "Vorher / Nachher", handle: "@ecreator.ch", views: "840K", hue: 265 },
+  { title: "Kundenstimme", handle: "@ecreator.ch", views: "612K", hue: 240 },
+  { title: "Behind the Scenes", handle: "@ecreator.ch", views: "503K", hue: 275 },
+  { title: "Produkt-Launch", handle: "@ecreator.ch", views: "2.0M", hue: 255 },
+  { title: "Ad Creative", handle: "@ecreator.ch", views: "1.6M", hue: 285 },
 ] as const;
 
 export const SERVICES = [

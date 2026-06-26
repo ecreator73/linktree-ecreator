@@ -67,7 +67,7 @@ export function AiImage({
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {/* fallback / loading backdrop */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#13301a] via-[#0b0b0b] to-[#0b0b0b]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1333] via-[#0b0b0b] to-[#0b0b0b]" />
       {!failed && (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img

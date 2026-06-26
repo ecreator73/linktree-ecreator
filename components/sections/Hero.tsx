@@ -92,7 +92,7 @@ export default function Hero() {
         >
           <a
             href={URLS.analyse}
-            className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-[0.95rem] font-semibold text-black shadow-[0_10px_40px_-10px_rgba(184,255,59,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_50px_-8px_rgba(184,255,59,0.65)]"
+            className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-3.5 text-[0.95rem] font-semibold text-black shadow-[0_10px_40px_-10px_rgba(124,108,245,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_50px_-8px_rgba(124,108,245,0.65)]"
           >
             Kostenlose Analyse
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

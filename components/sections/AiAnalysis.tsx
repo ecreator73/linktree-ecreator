@@ -240,7 +240,7 @@ export default function AiAnalysis() {
                 />
                 <button
                   type="submit"
-                  className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(184,255,59,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-8px_rgba(184,255,59,0.7)]"
+                  className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(124,108,245,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-8px_rgba(124,108,245,0.7)]"
                 >
                   Analyse starten
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -446,7 +446,7 @@ export default function AiAnalysis() {
                         sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
                       );
                     }}
-                    className="group mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-7 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(184,255,59,0.55)] transition-all duration-300 hover:-translate-y-0.5"
+                    className="group mt-6 inline-flex items-center justify-center gap-2 rounded-2xl bg-accent px-7 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(124,108,245,0.55)] transition-all duration-300 hover:-translate-y-0.5"
                   >
                     Report freischalten
                     <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -565,7 +565,7 @@ function LeadForm({
         <button
           type="submit"
           disabled={submitting}
-          className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(184,255,59,0.55)] transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+          className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-accent px-6 py-4 text-base font-semibold text-black shadow-[0_12px_40px_-10px_rgba(124,108,245,0.55)] transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {submitting ? "Wird gesendet …" : "Report freischalten"}
           {!submitting && (

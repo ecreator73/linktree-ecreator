@@ -20,9 +20,9 @@ export default function Background() {
 
     // theme-aware particle tint (lime on dark, deep green on light)
     const isLight = () => document.documentElement.classList.contains("light");
-    let dot = isLight() ? "63,122,0" : "184,255,59";
+    let dot = isLight() ? "91,63,214" : "124,108,245";
     const themeObserver = new MutationObserver(() => {
-      dot = isLight() ? "63,122,0" : "184,255,59";
+      dot = isLight() ? "91,63,214" : "124,108,245";
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,
@@ -124,7 +124,7 @@ export default function Background() {
     >
       {/* base vignette */}
       <div className="absolute inset-0 bg-bg" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,255,59,0.05),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,108,245,0.05),transparent_55%)]" />
 
       {/* floating blurred shapes */}
       <div className="absolute -left-40 top-[12%] h-[34rem] w-[34rem] rounded-full bg-accent/[0.05] blur-[120px] animate-float" />
@@ -143,7 +143,7 @@ export default function Background() {
       {/* cursor glow */}
       <div
         ref={glowRef}
-        className="absolute h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(184,255,59,0.07),transparent_60%)] will-change-transform"
+        className="absolute h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(124,108,245,0.07),transparent_60%)] will-change-transform"
       />
 
       {/* subtle noise/grain via gradient mask top + bottom */}
