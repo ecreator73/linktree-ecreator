@@ -11,6 +11,7 @@ import {
 } from "@/lib/analysis";
 import { buildPayload, submitLead, type LeadInput } from "@/lib/leads";
 import AnalysisReport from "@/components/sections/AnalysisReport";
+import { LogoMark, SiteShot } from "@/components/SmartImage";
 import {
   Sparkles,
   ArrowRight,
@@ -152,13 +153,11 @@ export default function AiAnalysis() {
   const [website, setWebsite] = useState("");
   const [stepIdx, setStepIdx] = useState(0);
   const [result, setResult] = useState<AnalysisResult | null>(null);
-  const [logoOk, setLogoOk] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
 
   const start = (e: React.FormEvent) => {
     e.preventDefault();
     if (!company.trim() || !website.trim()) return;
-    setLogoOk(true);
     setResult(runAnalysis(company, website));
     setStepIdx(0);
     setPhase("analyzing");
@@ -332,17 +331,13 @@ export default function AiAnalysis() {
               {/* score hero */}
               <div className="flex flex-col items-center gap-6 rounded-[24px] border border-line bg-bg/60 p-6 sm:flex-row sm:items-center sm:gap-8 sm:p-8">
                 <div className="flex items-center gap-4">
-                  {logoOk && (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={result.faviconUrl}
-                      alt={result.company}
-                      width={44}
-                      height={44}
-                      className="h-11 w-11 rounded-xl border border-line bg-white/5 object-contain p-1.5"
-                      onError={() => setLogoOk(false)}
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-white/5 p-1">
+                    <LogoMark
+                      sources={result.logoSources}
+                      initials={result.company.slice(0, 2).toUpperCase()}
+                      size={32}
                     />
-                  )}
+                  </span>
                   <div>
                     <div className="text-sm text-muted">{result.company}</div>
                     <div className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
@@ -368,6 +363,26 @@ export default function AiAnalysis() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* real live screenshot of the entered site */}
+              <div className="mt-4 overflow-hidden rounded-[24px] border border-line bg-[#0c0c0c]">
+                <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5">
+                  <span className="h-2 w-2 rounded-full bg-white/15" />
+                  <span className="h-2 w-2 rounded-full bg-white/15" />
+                  <span className="h-2 w-2 rounded-full bg-white/15" />
+                  <span className="ml-3 flex-1 truncate text-[0.72rem] text-white/40">
+                    {result.domain}
+                  </span>
+                  <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[0.62rem] font-medium text-accent-fg">
+                    Live-Screenshot
+                  </span>
+                </div>
+                <SiteShot
+                  domain={result.domain}
+                  alt={`Screenshot von ${result.domain}`}
+                  className="aspect-[16/9] w-full"
+                />
               </div>
 
               {/* quick wins */}

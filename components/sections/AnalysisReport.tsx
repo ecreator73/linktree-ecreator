@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { AnalysisResult } from "@/lib/analysis";
 import { generateCreatives } from "@/lib/report";
 import { URLS } from "@/lib/data";
+import { LogoMark, SiteShot } from "@/components/SmartImage";
 import {
   Check,
   ArrowRight,
@@ -18,7 +18,7 @@ import {
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/* brand mark: real favicon with typographic fallback */
+/* brand mark: real company logo (Clearbit → favicon) with initials fallback */
 function BrandMark({
   result,
   size = 28,
@@ -26,35 +26,13 @@ function BrandMark({
   result: AnalysisResult;
   size?: number;
 }) {
-  const [ok, setOk] = useState(true);
   const initials = result.company
     .split(/\s+/)
     .slice(0, 2)
     .map((w) => w[0])
     .join("")
     .toUpperCase();
-  if (ok) {
-    return (
-      /* eslint-disable-next-line @next/next/no-img-element */
-      <img
-        src={result.faviconUrl}
-        alt={result.company}
-        width={size}
-        height={size}
-        onError={() => setOk(false)}
-        className="rounded-md bg-white/10 object-contain p-0.5"
-        style={{ width: size, height: size }}
-      />
-    );
-  }
-  return (
-    <span
-      className="flex items-center justify-center rounded-md bg-accent/20 text-[0.7rem] font-bold text-accent"
-      style={{ width: size, height: size }}
-    >
-      {initials}
-    </span>
-  );
+  return <LogoMark sources={result.logoSources} initials={initials} size={size} />;
 }
 
 function Block({
@@ -126,6 +104,28 @@ export default function AnalysisReport({
         Vorschläge / Mockups</span> – sie wurden noch nicht umgesetzt und dienen
         als Inspiration für dein Wachstum.
       </div>
+
+      {/* ---------- 0. CURRENT WEBSITE (real screenshot) ---------- */}
+      <Block eyebrow="Analyse" title="Deine aktuelle Website">
+        <div className="overflow-hidden rounded-[20px] border border-line bg-[#0c0c0c]">
+          <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+            <span className="ml-3 flex-1 truncate rounded-md bg-white/5 px-3 py-1 text-[0.72rem] text-white/40">
+              {result.domain}
+            </span>
+          </div>
+          <SiteShot
+            domain={result.domain}
+            alt={`Screenshot von ${result.domain}`}
+            className="aspect-[16/10] w-full"
+          />
+        </div>
+        <p className="mt-3 text-center text-[0.78rem] text-muted">
+          Live-Screenshot deiner aktuellen Website – Basis unserer Analyse.
+        </p>
+      </Block>
 
       {/* ---------- 1. NEW WEBSITE PREVIEW ---------- */}
       <Block eyebrow="Vorschlag 01" title="Neue Website – Vorschau">

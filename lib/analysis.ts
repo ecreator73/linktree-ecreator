@@ -15,6 +15,8 @@ export type AnalysisResult = {
   company: string;
   domain: string;
   faviconUrl: string;
+  logoSources: string[];
+  screenshotUrl: string;
   overall: number;
   opportunities: number;
   highPotential: number;
@@ -62,6 +64,28 @@ export function faviconUrl(domain: string): string {
   return `https://www.google.com/s/2/favicons?domain=${encodeURIComponent(
     domain
   )}&sz=128`;
+}
+
+// Real company logo (Clearbit) — returns the actual brand logo for many domains.
+export function logoUrl(domain: string): string {
+  return `https://logo.clearbit.com/${domain}?size=256`;
+}
+
+// Logo sources in priority order (real logo → larger favicon → small favicon).
+export function logoSources(domain: string): string[] {
+  return [
+    logoUrl(domain),
+    `https://icons.duckduckgo.com/ip3/${domain}.ico`,
+    faviconUrl(domain),
+  ];
+}
+
+// Real live screenshot of the website (WordPress mShots — free, no key).
+export function screenshotUrl(domain: string, width = 1280): string {
+  const target = `https://${domain}`;
+  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(
+    target
+  )}?w=${width}`;
 }
 
 const CATEGORY_DEFS: { key: string; title: string; metrics: string[] }[] = [
@@ -169,6 +193,8 @@ export function runAnalysis(company: string, website: string): AnalysisResult {
     company: company.trim() || domain,
     domain,
     faviconUrl: faviconUrl(domain),
+    logoSources: logoSources(domain),
+    screenshotUrl: screenshotUrl(domain),
     overall,
     opportunities,
     highPotential: Math.min(highPotential, 5),
