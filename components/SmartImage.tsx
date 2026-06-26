@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { aiImageUrl } from "@/lib/analysis";
 
 /* Logo that walks a list of real sources, then falls back to initials. */
 export function LogoMark({
@@ -37,6 +38,61 @@ export function LogoMark({
       className={`${rounded} bg-white object-contain p-0.5`}
       style={{ width: size, height: size }}
     />
+  );
+}
+
+/* Real AI-generated image (Pollinations). Shows a generating spinner and a
+   graceful gradient fallback if the service is slow/unavailable. */
+export function AiImage({
+  prompt,
+  width = 768,
+  height = 768,
+  seed = 7,
+  alt,
+  className = "",
+  children,
+}: {
+  prompt: string;
+  width?: number;
+  height?: number;
+  seed?: number;
+  alt: string;
+  className?: string;
+  children?: React.ReactNode;
+}) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const src = aiImageUrl(prompt, width, height, seed);
+
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      {/* fallback / loading backdrop */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#13301a] via-[#0b0b0b] to-[#0b0b0b]" />
+      {!failed && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={(e) => {
+            if (e.currentTarget.naturalWidth > 50) setLoaded(true);
+            else setFailed(true);
+          }}
+          onError={() => setFailed(true)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
+      {!loaded && !failed && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
+          <div className="h-6 w-6 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
+          <span className="text-[0.62rem] text-white/50">KI-Bild wird generiert …</span>
+        </div>
+      )}
+      {/* overlay content (logo, text, cta) */}
+      <div className="relative h-full w-full">{children}</div>
+    </div>
   );
 }
 

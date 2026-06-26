@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { AnalysisResult } from "@/lib/analysis";
 import { generateCreatives } from "@/lib/report";
 import { URLS } from "@/lib/data";
-import { LogoMark, SiteShot } from "@/components/SmartImage";
+import { LogoMark, SiteShot, AiImage } from "@/components/SmartImage";
 import ScaledFrame from "@/components/ScaledFrame";
 import {
   Check,
@@ -168,38 +168,39 @@ export default function AnalysisReport({
         </div>
       </Block>
 
-      {/* ---------- 2. SOCIAL ADS ---------- */}
-      <Block eyebrow="Vorschlag 02" title="Social Ads – Beispiele" delay={0.05}>
+      {/* ---------- 2. SOCIAL ADS (real AI imagery + real logo) ---------- */}
+      <Block eyebrow="Vorschlag 02" title="Social Ads – KI-generiert" delay={0.05}>
         <div className="grid gap-4 sm:grid-cols-3">
-          {c.ads.map((ad) => (
+          {c.ads.map((ad, i) => (
             <div
               key={ad.platform}
               className="overflow-hidden rounded-[20px] border border-line"
             >
-              <div
-                className={`relative ${
-                  ad.ratio === "1:1" ? "aspect-square" : "aspect-[9/16]"
-                }`}
-                style={{
-                  background: `linear-gradient(160deg, hsl(${ad.hue} 55% 20%), #0b0b0b 75%)`,
-                }}
+              <AiImage
+                prompt={`professional ${ad.platform} advertising creative for a ${c.brand} business, premium modern marketing photography, clean composition, dramatic lighting, copy space`}
+                width={ad.ratio === "1:1" ? 768 : 576}
+                height={ad.ratio === "1:1" ? 768 : 1024}
+                seed={11 + i}
+                alt={`${ad.platform} Creative für ${c.brand}`}
+                className={ad.ratio === "1:1" ? "aspect-square" : "aspect-[9/16]"}
               >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(184,255,59,0.18),transparent_55%)]" />
+                {/* scrim for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40" />
                 <div className="absolute inset-0 flex flex-col p-4">
                   <div className="flex items-center gap-2">
                     <BrandMark result={result} size={22} />
-                    <span className="text-[0.72rem] font-medium text-white/80">
+                    <span className="text-[0.72rem] font-medium text-white drop-shadow">
                       {c.brand}
                     </span>
-                    <span className="ml-auto rounded-full bg-black/40 px-2 py-0.5 text-[0.6rem] text-white/60">
+                    <span className="ml-auto rounded-full bg-black/50 px-2 py-0.5 text-[0.6rem] text-white/80">
                       {ad.platform}
                     </span>
                   </div>
                   <div className="mt-auto">
-                    <div className="text-base font-semibold leading-snug text-white">
+                    <div className="text-base font-semibold leading-snug text-white drop-shadow">
                       {ad.headline}
                     </div>
-                    <p className="mt-1 text-[0.72rem] leading-snug text-white/60">
+                    <p className="mt-1 text-[0.72rem] leading-snug text-white/80 drop-shadow">
                       {ad.body}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-[0.72rem] font-semibold text-black">
@@ -208,10 +209,34 @@ export default function AnalysisReport({
                     </span>
                   </div>
                 </div>
-              </div>
+              </AiImage>
             </div>
           ))}
         </div>
+      </Block>
+
+      {/* ---------- 2b. AI IMAGE CONCEPTS ---------- */}
+      <Block eyebrow="KI-Bilder" title="KI-generierte Bildkonzepte" delay={0.05}>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {[
+            `premium brand mood image for ${c.brand}, elegant, modern, cinematic, dark tones with lime green accents`,
+            `professional modern workplace of ${c.brand}, architectural photography, premium, bright`,
+            `hero marketing visual for ${c.brand}, abstract premium product concept, studio lighting, high detail`,
+          ].map((prompt, i) => (
+            <AiImage
+              key={i}
+              prompt={prompt}
+              width={768}
+              height={576}
+              seed={31 + i}
+              alt={`KI-Bildkonzept ${i + 1} für ${c.brand}`}
+              className="aspect-[4/3] rounded-[20px] border border-line"
+            />
+          ))}
+        </div>
+        <p className="mt-3 text-center text-[0.78rem] text-muted">
+          Echte KI-generierte Bildkonzepte – als Inspiration für Kampagnen &amp; Website.
+        </p>
       </Block>
 
       {/* ---------- 3. FLYER ---------- */}

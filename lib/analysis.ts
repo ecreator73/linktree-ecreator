@@ -80,6 +80,18 @@ export function logoSources(domain: string): string[] {
   ];
 }
 
+// Real AI-generated image via Pollinations (free, no API key, client-side).
+export function aiImageUrl(
+  prompt: string,
+  w = 768,
+  h = 768,
+  seed = 7
+): string {
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(
+    prompt
+  )}?width=${w}&height=${h}&seed=${seed}&nologo=true&model=flux`;
+}
+
 // Real live screenshot of the website (WordPress mShots — free, no key).
 export function screenshotUrl(domain: string, width = 1280): string {
   const target = `https://${domain}`;
