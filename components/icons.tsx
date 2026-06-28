@@ -172,3 +172,79 @@ export const Shield = (p: I) => (
   </svg>
 );
 
+export const TrendingUp = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M3 17l6-6 4 4 8-8" />
+    <path d="M15 7h6v6" />
+  </svg>
+);
+
+export const BarChart = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+  </svg>
+);
+
+export const Users = (p: I) => (
+  <svg {...base} {...p}>
+    <circle cx="9" cy="8" r="3.2" />
+    <path d="M3.5 20a5.5 5.5 0 0 1 11 0" />
+    <path d="M16 5.2a3.2 3.2 0 0 1 0 5.6M17.5 14.5A5.5 5.5 0 0 1 20.5 20" />
+  </svg>
+);
+
+export const Phone = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 3 6.2 2 2 0 0 1 5 4Z" />
+  </svg>
+);
+
+export const Mail = (p: I) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="5" width="18" height="14" rx="3" />
+    <path d="m4 7 8 6 8-6" />
+  </svg>
+);
+
+export const Rocket = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2" />
+    <path d="M9 13c-1-3 0-7 4-10 4 1 5 5 4 9-2 1.5-4 2-4 2l-4-1Z" />
+    <circle cx="14.5" cy="8.5" r="1.4" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+export const Megaphone = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M3 11v2a1.5 1.5 0 0 0 1.5 1.5H6l9 4.5V5L6 9.5H4.5A1.5 1.5 0 0 0 3 11Z" />
+    <path d="M18 9a3 3 0 0 1 0 6" />
+  </svg>
+);
+
+export const Briefcase = (p: I) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="7" width="18" height="13" rx="2.5" />
+    <path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M3 12h18" />
+  </svg>
+);
+
+export const FileText = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+    <path d="M14 3v4h4M8 12h8M8 16h6" />
+  </svg>
+);
+
+export const ChevronDown = (p: I) => (
+  <svg {...base} {...p}>
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+export const Clock = (p: I) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 2" />
+  </svg>
+);
+

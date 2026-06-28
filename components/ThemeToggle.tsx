@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Theme = "light" | "dark";
@@ -13,11 +14,15 @@ function getInitial(): Theme {
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setTheme(getInitial());
     setMounted(true);
   }, []);
+
+  // Finance Growth is an always-dark, self-contained brand — no theme toggle.
+  if (pathname?.startsWith("/finance")) return null;
 
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
