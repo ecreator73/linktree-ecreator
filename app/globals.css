@@ -127,6 +127,22 @@ body {
   }
 }
 
+/* ---- Finance Growth vertical — self-contained, always-dark premium scope ---- */
+.finance-scope {
+  background-color: #050505;
+  color: #ffffff;
+  color-scheme: dark;
+}
+.finance-scope ::selection {
+  background: rgba(216, 183, 106, 0.28);
+  color: #ffffff;
+}
+/* Keep native select dropdowns dark inside the finance scope */
+.finance-scope select option {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
